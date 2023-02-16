@@ -38,14 +38,14 @@ def cartonize_image(image):
 
 def main():
     """Face Detection App"""
-    st.title ("Face Detection App")
-    st.text ("Build with streamlit and Open CV")
+    st.title ("Aplikasi Deteksi Wajah")
+    st.text ("Menggunakan OpenCV dan Streamlit")
 
     activities = ["Deteksi Wajah", "Analisis Sentimen"]
     choice = st.sidebar.selectbox("Select Activity", activities)
 
-    if choice == 'Home':
-        st.subheader("Face Detection")
+    if choice == 'Deteksi Wajah':
+        st.subheader("Deteksi Wajah")
 
         image_file = st.file_uploader("Upload Image", type=['jpg', 'png', 'jpeg'])
 
@@ -54,10 +54,10 @@ def main():
             st.text("Original Image")
             st.image(image)       
         
-        task = ["Face Detection", "Cartonize"]
+        task = ["Deteksi Wajah", "Cartonize"]
         feature_choice = st.sidebar.selectbox("Task", task)
         if st.button("Process"):
-            if feature_choice == 'Face Detection':
+            if feature_choice == 'Deteksi Wajah':
                 result_img, result_face = detect_faces(image)
                 st.success("Found {} faces".format(len(result_face)))
                 st.image(result_img)
