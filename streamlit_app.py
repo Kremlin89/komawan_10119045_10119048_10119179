@@ -41,7 +41,7 @@ def cartonize_image(image):
 def main():
     """Face Detection App"""
     st.title ("Aplikasi Deteksi Wajah dan Analisis Sentimen Komentar Aplikasi")
-    st.text ("10119045 Fahma Maulana")
+    st.text ("10119045 Fahma Maulana \n 10119048 Mochammad Faishal \n 10119179 Muhamad Bagus Prakoso")
     st.text ("10119048 Mochammad Faishal")
     st.text ("10119179 Muhamad Bagus Prakoso")
     st.text ("Menggunakan OpenCV, NLTK, Github, dan Streamlit")
