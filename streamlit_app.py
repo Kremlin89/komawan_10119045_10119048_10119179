@@ -13,7 +13,7 @@ def detect_faces(image):
     img = cv2.cvtColor(new_img, 1)
     gray = cv2.cvtColor(new_img, cv2.COLOR_BGR2GRAY)
 
-    faces = FACE_CASCADE.detectMultiScale(gray, 2, 1)
+    faces = FACE_CASCADE.detectMultiScale(gray, 1.3, 5)
 
     for (x, y, w, h) in faces:
         cv2.rectangle(img, (x, y), (x+w, y+h), (255,0,0), 2)
