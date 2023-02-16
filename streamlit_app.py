@@ -22,7 +22,7 @@ def detect_faces(image):
         
     return img, faces
 
-ef cartonize_image(image):
+def cartonize_image(image):
     new_img = np.array(image.convert('RGB'))
     img = cv2.cvtColor(new_img, 1)
     gray = cv2.cvtColor(new_img, cv2.COLOR_BGR2GRAY)
