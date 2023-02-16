@@ -13,7 +13,7 @@ def detect_faces(image):
     img = cv2.cvtColor(new_img, 1)
     gray = cv2.cvtColor(new_img, cv2.COLOR_BGR2GRAY)
 
-    faces = FACE_CASCADE.detectMultiScale(gray, 1.3, 6)
+    faces = FACE_CASCADE.detectMultiScale(gray, 1.1, 4)
 
     for (x, y, w, h) in faces:
         cv2.rectangle(img, (x, y), (x+w, y+h), (255,0,0), 2)
@@ -72,7 +72,7 @@ def main():
         nltk.download('vader_lexicon')
 
         #User Input
-        usr_input = st.text_input("Nilai Produk Kami: ")
+        usr_input = st.text_input("Nilai Aplikasi Kami: ")
 
         #Proses
         sentiment = SentimentIntensityAnalyzer()
