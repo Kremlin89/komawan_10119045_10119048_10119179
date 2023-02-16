@@ -77,6 +77,8 @@ def main():
         #Proses
         sentiment = SentimentIntensityAnalyzer()
         score = sentiment.polarity_scores(usr_input)
+        
+        st.write(score)
 
         #Kondisi
         if score["neu"] > score["neg"] and score["neu"] > score["pos"]:
