@@ -67,8 +67,8 @@ def main():
                 result_img = cartonize_image(image)
                 st.image(result_img)
     
-    elif choice == 'Analisis Sentimen'
-        :#Dataset
+    elif choice == 'Analisis Sentimen':
+        #Dataset
         nltk.download('vader_lexicon')
 
         #User Input
