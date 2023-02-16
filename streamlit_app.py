@@ -1,5 +1,7 @@
+import nltk
 from unittest import result
 import streamlit as st
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import cv2 
 from PIL import Image, ImageEnhance
 import numpy as np
@@ -66,10 +68,26 @@ def main():
                 st.image(result_img)
     
     elif choice == 'Analisis Sentimen':
-        st.subheader("About Face Detection App")
-        st.markdown("Build with Streamlit and Open CV for Codepolitan Projects")
-        st.text("Done")
-        st.success("Success!!")
+        #DATASET
+        nltk.download('vader_lexicon')
+
+        #TITLE
+        st.title("Real Time Sentiment Analysis")
+
+        #TAKE A USER INPUT
+        usr_input = st.text_input("Please rate our app: ")
+
+        #PROCESS
+        sentiment = SentimentIntensityAnalyzer()
+        score = sentiment.polarity_scores(usr_input)
+
+        #CONDITION
+        if score["neu"] > score["neg"] and score["neu"] > score["pos"]:
+        st.write("# Neutral")
+        elif score["neg"] > score["pos"]:
+        st.write("# Negative")
+        else:
+        st.write("# Positive")
 
 
 if __name__ == '__main__':
