@@ -43,8 +43,7 @@ def main():
             st.text("Original Image")
             st.image(image)       
         
-        task = ["Deteksi Wajah"]
-        feature_choice = st.sidebar.selectbox("Task", task)
+
         if st.button("Proses"):
             if feature_choice == 'Deteksi Wajah':
                 result_img, result_face = detect_faces(image)
