@@ -27,21 +27,21 @@ def cartonize_image(image):
     img = cv2.cvtColor(new_img, 1)
     gray = cv2.cvtColor(new_img, cv2.COLOR_BGR2GRAY)
 
-    #EDGES
+    #Edge
     gray = cv2.medianBlur(gray, 5)
     edges = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 9, 9)
 
-    #COLOR
+    #Color
     color = cv2.bilateralFilter(img, 9, 300, 300)
 
-    #CARTOON
+    #Cartoon
     cartoon = cv2.bitwise_and(color, color, mask=edges)
     return cartoon
 
 def main():
     """Face Detection App"""
-    st.title ("Aplikasi Deteksi Wajah")
-    st.text ("Menggunakan OpenCV dan Streamlit")
+    st.title ("Aplikasi Deteksi Wajah dan Analisis Sentimen Komentar Aplikasi")
+    st.text ("Menggunakan OpenCV, NLTK, Github dan Streamlit")
 
     activities = ["Deteksi Wajah", "Analisis Sentimen"]
     choice = st.sidebar.selectbox("Select Activity", activities)
@@ -67,26 +67,24 @@ def main():
                 result_img = cartonize_image(image)
                 st.image(result_img)
     
-    elif choice == 'Analisis Sentimen':#DATASET
+    elif choice == 'Analisis Sentimen'
+        :#Dataset
         nltk.download('vader_lexicon')
 
-        #TITLE
-        st.title("Real Time Sentiment Analysis")
+        #User Input
+        usr_input = st.text_input("Nilai Produk Kami: ")
 
-        #TAKE A USER INPUT
-        usr_input = st.text_input("Please rate our app: ")
-
-        #PROCESS
+        #Proses
         sentiment = SentimentIntensityAnalyzer()
         score = sentiment.polarity_scores(usr_input)
 
-        #CONDITION
+        #Kondisi
         if score["neu"] > score["neg"] and score["neu"] > score["pos"]:
-               st.write("# Neutral")
+               st.write("# Netral")
         elif score["neg"] > score["pos"]:
-               st.write("# Negative")
+               st.write("# Buruk")
         else:
-               st.write("# Positive")
+               st.write("# Positif")
         
 
 if __name__ == '__main__':
