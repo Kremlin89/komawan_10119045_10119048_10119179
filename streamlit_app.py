@@ -31,7 +31,7 @@ def main():
     st.text ("Menggunakan OpenCV, NLTK, Github, dan Streamlit")
 
     activities = ["Deteksi Wajah", "Analisis Sentimen"]
-    choice = st.sidebar.selectbox("Select Activity", activities)
+    choice = st.sidebar.selectbox("Menu", activities)
 
     if choice == 'Deteksi Wajah':
         st.subheader("Deteksi Wajah")
