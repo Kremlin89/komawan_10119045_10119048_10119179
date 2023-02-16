@@ -71,7 +71,7 @@ def main():
     
         elif choice == 'Analisis Sentimen':
         #Dataset
-        nltk.download('vader_lexicon')
+            nltk.download('vader_lexicon')
 
         #User Input
         usr_input = st.text_input("Nilai Aplikasi Kami: ")
