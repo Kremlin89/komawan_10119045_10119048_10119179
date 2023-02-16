@@ -60,18 +60,21 @@ def main():
             st.text("Original Image")
             st.image(image)       
         
-        task = ["Deteksi Wajah"]
+        task = ["Deteksi Wajah", "Cartonize"]
         feature_choice = st.sidebar.selectbox("Task", task)
         if st.button("Proses"):
             if feature_choice == 'Deteksi Wajah':
                 result_img, result_face = detect_faces(image)
                 st.success("Found {} faces".format(len(result_face)))
                 st.image(result_img)
+            elif feature_choice == 'Cartonize':
+                result_img = cartonize_image(image)
+                st.image(result_img)
             
     
-        elif choice == 'Analisis Sentimen':
+    elif choice == 'Analisis Sentimen':
         #Dataset
-            nltk.download('vader_lexicon')
+        nltk.download('vader_lexicon')
 
         #User Input
         usr_input = st.text_input("Nilai Aplikasi Kami: ")
