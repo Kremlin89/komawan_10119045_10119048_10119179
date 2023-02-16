@@ -51,7 +51,7 @@ def main():
     if choice == 'Deteksi Wajah':
         st.subheader("Deteksi Wajah")
 
-        image_file = st.file_uploader("Upload Image", type=['jpg', 'png', 'jpeg'])
+        image_file = st.file_uploader("Upload Gambar", type=['jpg', 'png', 'jpeg'])
 
         if image_file is not None:
             image = Image.open(image_file)
@@ -60,7 +60,7 @@ def main():
         
         task = ["Deteksi Wajah", "Cartonize"]
         feature_choice = st.sidebar.selectbox("Task", task)
-        if st.button("Process"):
+        if st.button("Proses"):
             if feature_choice == 'Deteksi Wajah':
                 result_img, result_face = detect_faces(image)
                 st.success("Found {} faces".format(len(result_face)))
