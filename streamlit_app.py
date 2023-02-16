@@ -22,21 +22,6 @@ def detect_faces(image):
         
     return img, faces
 
-def cartonize_image(image):
-    new_img = np.array(image.convert('RGB'))
-    img = cv2.cvtColor(new_img, 1)
-    gray = cv2.cvtColor(new_img, cv2.COLOR_BGR2GRAY)
-
-    #Edge
-    gray = cv2.medianBlur(gray, 5)
-    edges = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 9, 9)
-
-    #Color
-    color = cv2.bilateralFilter(img, 9, 300, 300)
-
-    #Cartoon
-    cartoon = cv2.bitwise_and(color, color, mask=edges)
-    return cartoon
 
 def main():
     """Face Detection App"""
@@ -58,16 +43,14 @@ def main():
             st.text("Original Image")
             st.image(image)       
         
-        task = ["Deteksi Wajah", "Cartonize"]
+        task = ["Deteksi Wajah"]
         feature_choice = st.sidebar.selectbox("Task", task)
         if st.button("Proses"):
             if feature_choice == 'Deteksi Wajah':
                 result_img, result_face = detect_faces(image)
                 st.success("Found {} faces".format(len(result_face)))
                 st.image(result_img)
-            elif feature_choice == 'Cartonize':
-                result_img = cartonize_image(image)
-                st.image(result_img)
+            
     
     elif choice == 'Analisis Sentimen':
         #Dataset
