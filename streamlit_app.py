@@ -67,8 +67,7 @@ def main():
                 result_img = cartonize_image(image)
                 st.image(result_img)
     
-    elif choice == 'Analisis Sentimen':
-        #DATASET
+    elif choice == 'Analisis Sentimen':#DATASET
         nltk.download('vader_lexicon')
 
         #TITLE
@@ -83,12 +82,12 @@ def main():
 
         #CONDITION
         if score["neu"] > score["neg"] and score["neu"] > score["pos"]:
-        st.write("# Neutral")
+               st.write("# Neutral")
         elif score["neg"] > score["pos"]:
-        st.write("# Negative")
+               st.write("# Negative")
         else:
-        st.write("# Positive")
-
+               st.write("# Positive")
+        
 
 if __name__ == '__main__':
     main()
