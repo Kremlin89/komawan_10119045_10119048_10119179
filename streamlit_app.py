@@ -13,7 +13,7 @@ def detect_faces(image):
     img = cv2.cvtColor(new_img, 1)
     gray = cv2.cvtColor(new_img, cv2.COLOR_BGR2GRAY)
 
-    faces = FACE_CASCADE.detectMultiScale(gray, 1.2, 4)
+    faces = FACE_CASCADE.detectMultiScale(gray, 1.3, 5)
 
     for (x, y, w, h) in faces:
         cv2.rectangle(img, (x, y), (x+w, y+h), (255,0,0), 2)
@@ -41,7 +41,10 @@ def cartonize_image(image):
 def main():
     """Face Detection App"""
     st.title ("Aplikasi Deteksi Wajah dan Analisis Sentimen Komentar Aplikasi")
-    st.text ("Menggunakan OpenCV, NLTK, Github dan Streamlit")
+    st.text ("10119045 Fahma Maulana")
+    st.text ("10119048 Mochammad Faishal")
+    st.text ("10119179 Muhamad Bagus Prakoso")
+    st.text ("Menggunakan OpenCV, NLTK, Github, dan Streamlit")
 
     activities = ["Deteksi Wajah", "Analisis Sentimen"]
     choice = st.sidebar.selectbox("Select Activity", activities)
